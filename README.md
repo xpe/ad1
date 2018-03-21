@@ -1,4 +1,6 @@
-# Anomaly Detection Experiment #1
+# Anomaly Detector #1
+
+This is a testbed for anomaly detection experiments.
 
 ## Visualize Synthetic Data 
 
@@ -8,8 +10,19 @@ python -m ad.data_vis
 
 ## Run the TensorFlow Model
 
+A simple example might be:
+
 ```sh
-python -m ad.model
+python -m ad.model --model_id=1 ...
+```
+
+To specify different GPUs (for example, in a 4 GPU system):
+
+```sh
+CUDA_VISIBLE_DEVICES=0 python -m ad.model --model_id=1 ...
+CUDA_VISIBLE_DEVICES=1 python -m ad.model --model_id=1 ...
+CUDA_VISIBLE_DEVICES=2 python -m ad.model --model_id=1 ...
+CUDA_VISIBLE_DEVICES=3 python -m ad.model --model_id=1 ...
 ```
 
 ## Interactive Development with Code Reloading 
@@ -32,17 +45,6 @@ To reload code:
 
 ```python
 reload()
-```
-
-
-## Example
-
-Start `python` using the "Interactive Development with Code Reloading" instructions, then:
-
-```python
-CUDA_VISIBLE_DEVICES=0 python -m --model_id=1 
-CUDA_VISIBLE_DEVICES=1
-CUDA_VISIBLE_DEVICES=2
 ```
 
 ## Setup
@@ -82,3 +84,6 @@ Give [pytest](https://docs.pytest.org/en/latest/) a try:
 ```
 pytest
 ```
+
+Note: In a recent install with `conda install pytest`, there were errors that
+may have been specific to macOS.
